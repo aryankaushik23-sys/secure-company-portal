@@ -70,4 +70,39 @@ npm start
 | manager_user | Test@1234 | Manager |
 | admin_user | Test@1234 | Admin |
 
+
 ## Project Structure
+```
+secure-company-portal/
+├── frontend/                  # React application
+│   └── src/
+│       ├── auth/
+│       │   └── keycloak.js    # Keycloak configuration
+│       ├── components/
+│       │   ├── Navbar.jsx     # Navigation with login/logout
+│       │   └── ProtectedRoute.jsx  # Role guard component
+│       ├── pages/
+│       │   ├── Home.jsx
+│       │   ├── HRDashboard.jsx
+│       │   ├── FinanceDashboard.jsx
+│       │   ├── ITDashboard.jsx
+│       │   ├── SecurityDashboard.jsx
+│       │   └── AccessDenied.jsx
+│       ├── App.js
+│       └── index.js
+├── backend/                   # Node.js Express API
+│   ├── middleware/
+│   │   ├── auth.js            # JWT validation
+│   │   └── rbac.js            # Role based access control
+│   ├── routes/
+│   │   ├── hr.js
+│   │   ├── finance.js
+│   │   ├── it.js
+│   │   └── security.js
+│   ├── index.js               # Express server entry point
+│   └── .env                   # Environment variables
+├── keycloak/
+│   └── README.md              # Realm setup instructions
+├── docker-compose.yml         # Docker services config
+└── README.md
+```
